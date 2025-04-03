@@ -2163,8 +2163,10 @@ input, select, textarea {
 					}
 
 				#nav ul li a i {
-				    margin-right: 8px; /* Space between icon and text */
-				    font-size: 1.2em; /* Slightly increase icon size */
+				    flex-shrink: 0; /* Prevents icon from resizing */
+				    width: 1.5em; /* Ensures consistent icon width */
+				    text-align: center; /* Centers icon within the width */
+				    font-size: 1.2em; /* Adjust icon size */
 				}
 					
 				#nav ul li a.active {
