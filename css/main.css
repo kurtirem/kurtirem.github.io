@@ -2162,6 +2162,11 @@ input, select, textarea {
 						line-height: 1.75em;
 					}
 
+				#nav ul li a i {
+				    margin-right: 8px; /* Space between icon and text */
+				    font-size: 1.2em; /* Slightly increase icon size */
+				}
+					
 				#nav ul li a.active {
 					background: rgba(0, 0, 0, 0.15);
 					box-shadow: inset 0 0 0.25em 0 rgba(0, 0, 0, 0.125);
