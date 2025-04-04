@@ -22,25 +22,71 @@
       }
     }
 
-    /* Project expand styles */
-    .project {
+    /* Project styles */
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .project-card {
+      flex: 1 1 calc(50% - 1rem);
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1rem;
       transition: all 0.3s ease;
       cursor: pointer;
-    }
-    .project.expanded {
       position: relative;
-      z-index: 10;
-      background: white;
-      padding: 2rem;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-      transform: scale(1.05);
     }
-    .project .details {
+
+    .project-card img {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+
+    .project-card h3 {
+      margin-top: 1rem;
+    }
+
+    .project-details {
       display: none;
       margin-top: 1rem;
     }
-    .project.expanded .details {
+
+    .project-card.expanded {
+      position: relative;
+      z-index: 100;
+      flex: 1 1 100%;
+      background: #f9f9f9;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card.expanded .project-details {
       display: block;
+    }
+
+    .project-card .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .project-card.expanded .close-btn {
+      display: block;
+    }
+
+    .hide-when-expanded.expanded ~ .hide-when-expanded:not(.expanded) {
+      display: none;
     }
   </style>
 </head>
@@ -69,7 +115,7 @@
           <header>
             <h1>Hi, I'm <strong>Irem Kurt</strong>.</h1>
           </header>
-          <p>I'm a 3rd-year Computational Engineering student at Aalto University, passionate about machine learning and robotics.</p>
+          <p>A Computational Engineering student at Aalto University, passionate about machine learning, robotics, and solving real-world challenges through technology.</p>
           <a href="#about" class="button large scrolly">More About Me</a>
           <a href="assets/KurtIrem_CV.pdf" class="button large" download>Download CV</a>
         </div>
@@ -216,11 +262,17 @@
   <script>
     AOS.init({ duration: 1000, once: true });
 
-    function toggleProject(el) {
-      document.querySelectorAll('.project').forEach(p => {
-        if (p !== el) p.classList.remove('expanded');
+    function expandProject(el) {
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.remove('expanded');
       });
-      el.classList.toggle('expanded');
+      el.classList.add('expanded');
+    }
+
+    function closeProject(e, btn) {
+      e.stopPropagation();
+      const card = btn.closest('.project-card');
+      card.classList.remove('expanded');
     }
   </script>
 </body>
