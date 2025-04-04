@@ -61,41 +61,32 @@
 
 <!-- Project Modals -->
 <div id="projectModals">
-  <!-- Modal Template -->
   <div class="project-modal" id="modal0">
     <div class="modal-content">
       <button class="close" onclick="closeModal()">&times;</button>
       <h2>Project Title 1</h2>
-      <h4>Short subtitle or role</h4>
       <p>Your project description goes here. You can include tools used, challenges solved, and outcomes.</p>
-      <a href="#" target="_blank">View on GitHub</a>
     </div>
   </div>
   <div class="project-modal" id="modal1">
     <div class="modal-content">
       <button class="close" onclick="closeModal()">&times;</button>
       <h2>Project Title 2</h2>
-      <h4>Short subtitle or role</h4>
       <p>Description placeholder</p>
-      <a href="#" target="_blank">View on GitHub</a>
     </div>
   </div>
   <div class="project-modal" id="modal2">
     <div class="modal-content">
       <button class="close" onclick="closeModal()">&times;</button>
       <h2>Project Title 3</h2>
-      <h4>Short subtitle or role</h4>
       <p>Description placeholder</p>
-      <a href="#" target="_blank">View on GitHub</a>
     </div>
   </div>
   <div class="project-modal" id="modal3">
     <div class="modal-content">
       <button class="close" onclick="closeModal()">&times;</button>
       <h2>Project Title 4</h2>
-      <h4>Short subtitle or role</h4>
       <p>Description placeholder</p>
-      <a href="#" target="_blank">View on GitHub</a>
     </div>
   </div>
 </div>
@@ -105,59 +96,71 @@
   .project-modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
     z-index: 1000;
   }
+
   .project-modal.active {
     display: flex;
+    animation: fadeIn 0.3s ease;
   }
+
+  .project-modal.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+  }
+
   .modal-content {
     background: white;
     padding: 2rem;
     max-width: 700px;
     border-radius: 10px;
     position: relative;
-    animation: fadeIn 0.3s ease;
   }
-  .modal-content h2 {
-    margin-top: 0;
-  }
+
   .modal-content .close {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: transparent;
     font-size: 24px;
+    background: none;
     border: none;
     cursor: pointer;
   }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
   }
 </style>
 
 <!-- Modal Script -->
 <script>
   function openModal(index) {
-    document.getElementById(`modal${index}`).classList.add('active');
+    const modal = document.getElementById(`modal${index}`);
+    modal.classList.add('active');
+    modal.classList.remove('fade-out');
   }
 
   function closeModal() {
-    document.querySelectorAll('.project-modal').forEach(modal => modal.classList.remove('active'));
+    document.querySelectorAll('.project-modal.active').forEach(modal => {
+      modal.classList.add('fade-out');
+      setTimeout(() => {
+        modal.classList.remove('active', 'fade-out');
+      }, 300);
+    });
   }
 
-  // ESC key support
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 
