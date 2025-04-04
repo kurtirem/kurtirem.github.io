@@ -109,50 +109,102 @@
     <div class="project-list">
       <!-- Project 1 -->
       <div class="project-box" onclick="toggleProject(this)">
-        <h3>Beijing Air Quality Prediction</h3>
+        <h3>Mahjong Game (C++ / Qt Project)</h3>
         <div class="project-details">
-          <p>This machine learning project aimed to predict Beijing's Air Quality Index (AQI) based on historical environmental and pollutant data. Using data from the UCI repository (2010–2014), we built two ML models: Ridge Regression and Random Forest Regressor.</p>
-          <p><strong>What I Did:</strong> I performed end-to-end data preprocessing (handling missing values, Min-Max scaling), feature selection (PM2.5, temperature, dew point, wind speed, etc.), model training, and evaluation. I implemented both algorithms and visualized correlations between features and AQI.</p>
-          <p><strong>What I Learned:</strong> This project deepened my understanding of supervised regression techniques, error metrics (MSE), model selection, and data visualization in environmental data analysis. I also learned to evaluate trade-offs between model complexity and generalization.</p>
-          <a href="https://github.com/kurtirem/ML-Course-Project" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-box" onclick="toggleProject(this)">
-        <h3>Optimization of CPFEM Parameters using ML</h3>
-        <div class="project-details">
-          <p>This Computational Engineering research project focused on improving the calibration process of Crystal Plasticity Finite Element Method (CPFEM) using machine learning. We integrated nanoindentation experiments, computational simulation (Abaqus), and neural networks to predict CPFEM parameters for advanced steels like DP1000 and QP1200.</p>
-          <p><strong>What I Did:</strong> I developed and evaluated a machine learning pipeline, mainly using artificial neural networks (ANNs), to automate parameter estimation. I also contributed to simulation design and analysis in Abaqus.</p>
-          <p><strong>What I Learned:</strong> This project gave me hands-on experience combining ML and materials science. I learned how to build physics-informed ML models, interpret force-displacement curves, and validate model outputs against experimental data.</p>
-          <a href="https://github.com/kurtirem/COE-Research-Project-ML" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-box" onclick="toggleProject(this)">
-        <h3>Mahjong Game (C++ Final Project)</h3>
-        <div class="project-details">
-          <p>A terminal-based Mahjong game developed as a final project for my Object-Oriented Programming course. The project encapsulated core mechanics like tile drawing, matching, and turn-taking using C++ classes and inheritance.</p>
-          <p><strong>What I Did:</strong> I designed the class structure, implemented game logic, and managed user interaction through a simple command-line interface.</p>
-          <p><strong>What I Learned:</strong> I refined my C++ skills, especially in class design, encapsulation, and memory management. I also gained experience debugging complex logic and creating user-friendly CLI experiences.</p>
+          <p>This was my final project for the Object-Oriented Programming course, where I developed a fully functional <em>Mahjong Solitaire</em> game. The project combines a C++ backend with a QML-based frontend using the Qt framework. The user can select and match open tile pairs while the game ensures rules are enforced (e.g., tiles that are not open cannot be selected). The game board uses a “turtle layout” similar to traditional Mahjong Solitaire.</p>
+          <p><strong>Key Features:</strong><br>
+          - Functional 2D graphical interface built with QML<br>
+          - Logic and model-view separation implemented in modern C++<br>
+          - Tile interactions handled through QML bindings to C++ objects<br>
+          - Dynamic layout generation (Turtle Layout)<br>
+          - Bonus: Board shuffle option to assist when no moves remain</p>
+          <p><strong>What I Did:</strong><br>
+          - Designed the architecture using Qt’s object model, exposing C++ classes (<code>Board</code>, <code>Tile</code>, <code>TileModel</code>) to QML<br>
+          - Managed game state, tile selection logic, and match validation entirely in C++<br>
+          - Utilized QML to create an intuitive user interface with responsive tile interactions<br>
+          - Implemented layout generation and optional reshuffle logic on the backend<br>
+          - Integrated assets using Qt Resource System for portability</p>
+          <p><strong>What I Learned:</strong><br>
+          - How to build desktop applications by combining declarative UI (QML) with imperative logic (C++)<br>
+          - How to use model-view separation and context properties in Qt<br>
+          - Advanced object-oriented programming practices, including encapsulation, abstraction, and modular design<br>
+          - The fundamentals of memory management, meta-object programming, and QML-C++ communication</p>
           <a href="https://github.com/kurtirem/Mahjong-Game-C-Project" target="_blank">View on GitHub</a>
         </div>
       </div>
-
-      <!-- Project 4 -->
+      
       <div class="project-box" onclick="toggleProject(this)">
-        <h3>Databases Coursework Project</h3>
+        <h3>Optimization of CPFEM Parameters using ML</h3>
         <div class="project-details">
-          <p>This was my final project for a university databases course. I designed an ER diagram, translated it into SQL schema, and implemented complex SQL queries to explore data and analyze relationships.</p>
-          <p><strong>What I Did:</strong> I handled the full relational database design cycle — from conceptual modeling to implementation — and wrote optimized queries using PostgreSQL.</p>
-          <p><strong>What I Learned:</strong> This project gave me foundational experience in database normalization, SQL logic, and how to design relational databases for real-world use cases.</p>
+          <p>This research project focused on using machine learning (ML) to optimize parameter calibration in Crystal Plasticity Finite Element Models (CPFEM) for advanced steels. The study aimed to automate the traditionally manual and time-consuming process of calibrating material parameters from nanoindentation data using an ANN model trained on simulation results. My primary contribution was leading the development of the machine learning pipeline and all data engineering steps required for precise predictions.</p>
+          <p><strong>Key Features:</strong><br>
+          - Worked with dual-phase steels (DP1000 and QP1200) using nanoindentation data<br>
+          - Designed data cleaning and preprocessing pipeline (IQR filtering, normalization)<br>
+          - Developed feature engineering steps for optimal model training<br>
+          - Trained and evaluated multiple ML models: ANN, CNN, LSTM, and Random Forest<br>
+          - Achieved high-accuracy calibration with low RMSE and high R² scores (up to 0.99)</p>
+          <p><strong>What I Did:</strong><br>
+          - Designed and coded the complete ML pipeline in Python, including data preprocessing, training/testing, and evaluation<br>
+          - Created custom loss functions and model evaluation routines<br>
+          - Developed a robust ANN-based system that predicted critical CPFEM parameters (shear stress, hardening rates, etc.) from nanoindentation FD curves<br>
+          - Integrated percentile-based outputs (25th, 50th, 75th) into model training for improved curve-fitting fidelity</p>
+          <p><strong>What I Learned:</strong><br>
+          - Gained deep hands-on experience in real-world application of machine learning to materials engineering<br>
+          - Learned to handle scientific datasets, reduce noise, and optimize model performance<br>
+          - Improved teamwork and interdisciplinary collaboration across engineering, simulation, and data science domains<br>
+          - Developed a greater understanding of predictive modeling, CPFEM workflows, and materials informatics</p>
+          <a href="https://github.com/kurtirem/COE-Research-Project-ML" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      
+      <div class="project-box" onclick="toggleProject(this)">
+        <h3>PostgreSQL Volunteer Management Platform (Databases Course Project)</h3>
+        <div class="project-details">
+          <p>This project was part of a Databases and Algorithms course where we were tasked with designing and implementing a relational database from scratch to manage a volunteer matching system. The goal was to develop a comprehensive backend that could match volunteers with requests based on skills, availability, and interests, while also being able to track, analyze, and visualize application statistics.</p>
+          <p><strong>Key Features:</strong><br>
+          - Built an entire PostgreSQL schema including entities like Volunteer, Skill, Request, Application, etc.<br>
+          - Designed and normalized ER schema; implemented constraints and relationships<br>
+          - Loaded real datasets (Excel format) into the database using SQLAlchemy<br>
+          - Wrote complex SQL queries for matching logic and monthly statistics (requests vs applications)<br>
+          - Built visualizations of application volume, skill match success, and trends using Pandas, Matplotlib, and Seaborn</p>
+          <p><strong>What I Did:</strong><br>
+          - Developed the full data ETL pipeline using Python: loading, cleaning, formatting, and storing structured data into PostgreSQL<br>
+          - Wrote modular SQL query handlers and Python functions for creating and analyzing tables<br>
+          - Created custom analysis scripts to assess volunteer skill correlation with successful applications<br>
+          - Built monthly visual breakdowns of request vs application volumes using CTEs and aggregations</p>
+          <p><strong>What I Learned:</strong><br>
+          - Practical experience with SQL schema design, normalization, and relational joins<br>
+          - PostgreSQL-specific syntax and Python integration using SQLAlchemy and psycopg2<br>
+          - Gained insights into how real organizations use data to improve volunteer allocation and operations<br>
+          - Learned to connect Python data processing with relational databases to build functional backends</p>
+          <a href="https://github.com/kurtirem/ML-Course-Project" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      
+      <div class="project-box" onclick="toggleProject(this)">
+        <h3>Beijing Air Quality Prediction (ML Course Project)</h3>
+        <div class="project-details">
+          <p>This machine learning course project involved building a predictive model for Beijing's Air Quality Index (AQI) using historical environmental and pollutant data. The goal was to create a regression model that could accurately forecast daily AQI values based on variables like PM2.5, temperature, humidity, and wind speed.</p>
+          <p><strong>Key Features:</strong><br>
+          - Dataset sourced from UCI (Beijing PM2.5, 2010–2014), processed into daily aggregates<br>
+          - Used two regression models: Random Forest Regressor and Ridge Regression<br>
+          - Preprocessing included handling missing data and Min-Max normalization<br>
+          - Evaluated models using Mean Squared Error (MSE) on train, validation, and test sets<br>
+          - Performed visual data analysis, including feature distributions and correlation matrix</p>
+          <p><strong>What I Did:</strong><br>
+          - Cleaned and preprocessed over 8,000 daily observations from the original hourly dataset<br>
+          - Trained and evaluated both ML models using a 75/10/15 data split<br>
+          - Applied Ridge Regression to mitigate overfitting and achieve lower MSE<br>
+          - Analyzed model performance using MSE metrics and selected Ridge Regression as the final model<br>
+          - Visualized correlations and feature distributions using Python (Seaborn, Matplotlib)</p>
+          <p><strong>What I Learned:</strong><br>
+          - Gained practical experience applying regression models to real-world environmental data<br>
+          - Learned the importance of proper feature scaling and model validation
+          - Developed the ability to compare different model behaviors and interpret performance metrics
+          - Practiced thoughtful feature selection and preprocessing to improve model generalization</p>          
           <a href="https://github.com/kurtirem/Databases-Project" target="_blank">View on GitHub</a>
         </div>
       </div>
-
-    </div>
-  </div>
 </article>
 
 <!-- Experience -->
