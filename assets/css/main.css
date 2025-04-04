@@ -1644,14 +1644,14 @@ input, select, textarea {
 		}
 
 		.image.circle img {
-		    width: 450px;
-		    height: 450px;
+		    width: 350px;
+		    height: 350px;
 		    border-radius: 50%;
 		    object-fit: cover;
 		    display: block;
 		    margin: 0 auto;
 		    border: 6px solid #fff;
-		    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+		    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 		}
 
 		.image.left {
