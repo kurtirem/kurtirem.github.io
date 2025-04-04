@@ -22,75 +22,145 @@
       }
     }
 
-    /* Project styles */
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
+<!-- Projects Section -->
+<article id="projects" class="wrapper style3" data-aos="fade-up">
+  <div class="container">
+    <header>
+      <h2>Projects</h2>
+      <p>Click any project to learn more.</p>
+    </header>
+    <div class="row">
+      <!-- Project Cards -->
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(0)">
+          <img src="images/pic01.jpg" alt="Project 1" class="image featured" />
+          <h3>Project Title 1</h3>
+        </div>
+      </div>
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(1)">
+          <img src="images/pic02.jpg" alt="Project 2" class="image featured" />
+          <h3>Project Title 2</h3>
+        </div>
+      </div>
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(2)">
+          <img src="images/pic03.jpg" alt="Project 3" class="image featured" />
+          <h3>Project Title 3</h3>
+        </div>
+      </div>
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(3)">
+          <img src="images/pic04.jpg" alt="Project 4" class="image featured" />
+          <h3>Project Title 4</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
 
-    .project-card {
-      flex: 1 1 calc(50% - 1rem);
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
+<!-- Project Modals -->
+<div id="projectModals">
+  <!-- Modal Template -->
+  <div class="project-modal" id="modal0">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h2>Project Title 1</h2>
+      <h4>Short subtitle or role</h4>
+      <p>Your project description goes here. You can include tools used, challenges solved, and outcomes.</p>
+      <a href="#" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+  <div class="project-modal" id="modal1">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h2>Project Title 2</h2>
+      <h4>Short subtitle or role</h4>
+      <p>Description placeholder</p>
+      <a href="#" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+  <div class="project-modal" id="modal2">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h2>Project Title 3</h2>
+      <h4>Short subtitle or role</h4>
+      <p>Description placeholder</p>
+      <a href="#" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+  <div class="project-modal" id="modal3">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">&times;</button>
+      <h2>Project Title 4</h2>
+      <h4>Short subtitle or role</h4>
+      <p>Description placeholder</p>
+      <a href="#" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+</div>
 
-    .project-card img {
-      width: 100%;
-      border-radius: 0.5rem;
-    }
+<!-- Modal Styles -->
+<style>
+  .project-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .project-modal.active {
+    display: flex;
+  }
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    max-width: 700px;
+    border-radius: 10px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  .modal-content .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
 
-    .project-card h3 {
-      margin-top: 1rem;
-    }
+<!-- Modal Script -->
+<script>
+  function openModal(index) {
+    document.getElementById(`modal${index}`).classList.add('active');
+  }
 
-    .project-details {
-      display: none;
-      margin-top: 1rem;
-    }
+  function closeModal() {
+    document.querySelectorAll('.project-modal').forEach(modal => modal.classList.remove('active'));
+  }
 
-    .project-card.expanded {
-      position: relative;
-      z-index: 100;
-      flex: 1 1 100%;
-      background: #f9f9f9;
-      padding: 2rem;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  // ESC key support
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal();
     }
+  });
+</script>
 
-    .project-card.expanded .project-details {
-      display: block;
-    }
-
-    .project-card .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: #222;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 18px;
-      cursor: pointer;
-      display: none;
-    }
-
-    .project-card.expanded .close-btn {
-      display: block;
-    }
-
-    .hide-when-expanded.expanded ~ .hide-when-expanded:not(.expanded) {
-      display: none;
-    }
-  </style>
-</head>
-<body class="is-preload">
 
   <!-- Nav -->
   <nav id="nav">
