@@ -2503,3 +2503,16 @@ input, select, textarea {
   from { opacity: 1; transform: scale(1); }
   to { opacity: 0; transform: scale(0.95); }
 }
+
+#home .row.align-center {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#home .image.circle img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
