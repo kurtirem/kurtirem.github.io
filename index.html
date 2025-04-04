@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Irem Kurt | Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    .image.circle img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .align-center {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+<!-- PROJECT CARD -->
+<div class="project-card" onclick="openModal(0)">
+  <img src="images/pic01.jpg" alt="Project 1" class="image featured" />
+  <h3>Project Title 1</h3>
+</div>
+
+<!-- MODAL -->
+<div class="project-modal" id="modal0">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <h2>Project Title 1</h2>
+    <p>This is where your project description goes.</p>
+  </div>
+</div>
+
+<!-- STYLES -->
+<style>
+  .project-card {
+    background: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .project-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .project-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .project-modal.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+  }
+
+  .modal-content .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+  }
+</style>
+
+<!-- SCRIPT -->
+<script>
+  function openModal(index) {
+    const modal = document.getElementById(`modal${index}`);
+    modal.classList.add('active');
+    modal.classList.remove('fade-out');
+  }
+
+  function closeModal() {
+    document.querySelectorAll('.project-modal.active').forEach(modal => {
+      modal.classList.add('fade-out');
+      setTimeout(() => {
+        modal.classList.remove('active', 'fade-out');
+      }, 300);
+    });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="container">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home -->
+  <article id="home" class="wrapper style1" data-aos="fade-in">
+    <div class="container">
+      <div class="row align-center">
+        <div class="col-4 col-5-large col-12-medium" data-aos="fade-right">
+          <span class="image circle"><img src="images/avatar1.png" alt="Profile" /></span>
+        </div>
+        <div class="col-8 col-7-large col-12-medium" data-aos="fade-left">
+          <header>
+            <h1>Hi, I'm <strong>Irem Kurt</strong>.</h1>
+          </header>
+          <p>A Computational Engineering student at Aalto University, passionate about machine learning, robotics, and solving real-world challenges through technology.</p>
+          <a href="#about" class="button large scrolly">More About Me</a>
+          <a href="assets/KurtIrem_CV.pdf" class="button large" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- About -->
+  <article id="about" class="wrapper style2" data-aos="fade-up">
+    <div class="container">
+      <header>
+        <h2>About Me</h2>
+      </header>
+      <p>Hi, I’m Irem — a 3rd-year Computational Engineering student with a minor in Computer Science at Aalto University. I am passionate about machine learning, robotics, and building solutions that bridge technology and human impact. My academic coursework combines Machine Learning, C++, and Data Structures with hands-on engineering experience, from designing competition-winning robots at VEX Robotics to optimizing material models using Machine Learning and CPFEM simulations. Beyond the lab, I thrive on leadership: co-founding UniPath to guide students abroad, organizing multiple TEDx events, and being named a finalist for EY NextGen Women for my strategic thinking. I'm currently writing my thesis on "AI-driven Transformation in Structural Engineering" and will be starting my master's degree in September 2025 on Machine Learning, Data Science, and Artificial Intelligence at Aalto University.</p>
+    </div>
+  </article>
+
+  <!-- Projects -->
+  <article id="projects" class="wrapper style3" data-aos="fade-up">
+    <div class="container">
+      <header>
+        <h2>Projects</h2>
+        <p>Click a project to view more details.</p>
+      </header>
+      <div class="row">
+        <!-- Project 1 -->
+        <div class="col-6 col-6-medium col-12-small">
+          <article class="box style2 project" onclick="toggleProject(this)" data-aos="fade-up">
+            <div class="image featured"><img src="images/pic01.jpg" alt="" /></div>
+            <h3>Project Alpha</h3>
+            <div class="details">
+              <p>Built with React and Firebase. A real-time task tracker with user authentication and live sync.</p>
+            </div>
+          </article>
+        </div>
+        <!-- Project 2 -->
+        <div class="col-6 col-6-medium col-12-small">
+          <article class="box style2 project" onclick="toggleProject(this)" data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+            <h3>Portfolio Website</h3>
+            <div class="details">
+              <p>This very site! Fully responsive, animated, and built using HTML5 UP's Miniport as a base.</p>
+            </div>
+          </article>
+        </div>
+        <!-- Project 3 -->
+        <div class="col-6 col-6-medium col-12-small">
+          <article class="box style2 project" onclick="toggleProject(this)" data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+            <h3>Weather App</h3>
+            <div class="details">
+              <p>A simple weather app using OpenWeatherMap API, fetching real-time weather and 5-day forecast.</p>
+            </div>
+          </article>
+        </div>
+        <!-- Project 4 -->
+        <div class="col-6 col-6-medium col-12-small">
+          <article class="box style2 project" onclick="toggleProject(this)" data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+            <h3>To-Do App</h3>
+            <div class="details">
+              <p>Built with vanilla JavaScript. LocalStorage-powered, minimalist UI, and drag-drop sorting.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Experience -->
+  <article id="experience" class="wrapper style2" data-aos="fade-up">
+    <div class="container">
+      <header>
+        <h2>Experience</h2>
+      </header>
+      <ul>
+        <li><strong>Frontend Developer</strong> at TechWorld (2022 – Present)</li>
+        <li><strong>Intern</strong> at CodeBase Studio (2021)</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Awards -->
+  <article id="awards" class="wrapper style3" data-aos="fade-up">
+    <div class="container">
+      <header>
+        <h2>Awards & Honors</h2>
+      </header>
+      <ul>
+        <li>1st Place – Web Design Challenge (2023)</li>
+        <li>Dean's List – University of Technology</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Contact -->
+  <article id="contact" class="wrapper style4" data-aos="fade-up">
+    <div class="container medium">
+      <header>
+        <h2>Contact Me</h2>
+        <p>Let’s connect and work together.</p>
+      </header>
+      <form method="post" action="#">
+        <div class="row">
+          <div class="col-6 col-12-small">
+            <input type="text" name="name" placeholder="Name" />
+          </div>
+          <div class="col-6 col-12-small">
+            <input type="email" name="email" placeholder="Email" />
+          </div>
+          <div class="col-12">
+            <input type="text" name="subject" placeholder="Subject" />
+          </div>
+          <div class="col-12">
+            <textarea name="message" placeholder="Message"></textarea>
+          </div>
+          <div class="col-12">
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" /></li>
+              <li><input type="reset" value="Clear" class="alt" /></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer>
+    <ul id="copyright">
+      <li>&copy; Kurt İrem. All rights reserved.</li>
+      <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+    </ul>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    function expandProject(el) {
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.remove('expanded');
+      });
+      el.classList.add('expanded');
+    }
+
+    function closeProject(e, btn) {
+      e.stopPropagation();
+      const card = btn.closest('.project-card');
+      card.classList.remove('expanded');
+    }
+  </script>
+</body>
+</html>
