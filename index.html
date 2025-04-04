@@ -23,87 +23,80 @@
     }
 
 <!-- PROJECT CARD -->
-<div class="project-card" onclick="openModal(0)">
-  <img src="images/pic01.jpg" alt="Project 1" class="image featured" />
-  <h3>Project Title 1</h3>
-</div>
+<article id="projects" class="wrapper style3" data-aos="fade-up">
+  <div class="container">
+    <header>
+      <h2>Projects</h2>
+      <p>Click a project to view more details.</p>
+    </header>
+    <div class="row">
+      <!-- Project Cards -->
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(0)">
+          <img src="images/pic01.jpg" alt="Project 1" class="image featured" />
+          <h3>Project One</h3>
+        </div>
+      </div>
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(1)">
+          <img src="images/pic02.jpg" alt="Project 2" class="image featured" />
+          <h3>Project Two</h3>
+        </div>
+      </div>
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(2)">
+          <img src="images/pic03.jpg" alt="Project 3" class="image featured" />
+          <h3>Project Three</h3>
+        </div>
+      </div>
+      <div class="col-6 col-12-medium">
+        <div class="project-card" onclick="openModal(3)">
+          <img src="images/pic04.jpg" alt="Project 4" class="image featured" />
+          <h3>Project Four</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
 
-<!-- MODAL -->
+<!-- Modals (place these just before </body>) -->
 <div class="project-modal" id="modal0">
   <div class="modal-content">
     <button class="close" onclick="closeModal()">&times;</button>
-    <h2>Project Title 1</h2>
-    <p>This is where your project description goes.</p>
+    <h2>Project One</h2>
+    <p>Project One details go here.</p>
+  </div>
+</div>
+<div class="project-modal" id="modal1">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <h2>Project Two</h2>
+    <p>Project Two details go here.</p>
+  </div>
+</div>
+<div class="project-modal" id="modal2">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <h2>Project Three</h2>
+    <p>Project Three details go here.</p>
+  </div>
+</div>
+<div class="project-modal" id="modal3">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <h2>Project Four</h2>
+    <p>Project Four details go here.</p>
   </div>
 </div>
 
-<!-- STYLES -->
-<style>
-  .project-card {
-    background: white;
-    padding: 1rem;
-    margin: 1rem 0;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-
-  .project-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .project-modal.active {
-    display: flex;
-    animation: fadeIn 0.3s ease;
-  }
-
-  .project-modal.fade-out {
-    animation: fadeOut 0.3s ease forwards;
-  }
-
-  .modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-  }
-
-  .modal-content .close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 24px;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(0.95); }
-  }
-</style>
-
-<!-- SCRIPT -->
+<!-- Script (add to bottom of body) -->
 <script>
   function openModal(index) {
     const modal = document.getElementById(`modal${index}`);
-    modal.classList.add('active');
-    modal.classList.remove('fade-out');
+    if (modal) {
+      modal.classList.add('active');
+      modal.classList.remove('fade-out');
+    }
   }
 
   function closeModal() {
@@ -119,6 +112,70 @@
     if (e.key === 'Escape') closeModal();
   });
 </script>
+
+<!-- Add this to main.css -->
+/* Modal Styles */
+.project-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.project-modal.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.project-modal.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  max-width: 700px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
 
 
   <!-- Nav -->
